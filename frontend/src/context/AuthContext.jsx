@@ -10,8 +10,8 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  // Setup axios defaults
-  axios.defaults.baseURL = 'http://localhost:5000/api';
+  // Setup axios defaults — reads from .env (VITE_API_URL)
+  axios.defaults.baseURL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
 
   useEffect(() => {
     const initAuth = () => {
